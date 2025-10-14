@@ -1,0 +1,26 @@
+footer {
+  background-color: #6b4f3f; /* café oscuro */
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+  border-top: 1px solid #5a3e30;
+  margin-top: auto;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+/* Redes sociales */
+.social-icon {
+  transition: transform 0.3s, filter 0.3s;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+/* Footer contenido */
+footer .text-end {
+  color: #fff;
+}
