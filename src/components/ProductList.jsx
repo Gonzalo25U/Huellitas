@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import ProductCard from './ProductCard';
 import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
 
-function ProductList({ products, onAddToCart }) {
+function ProductList({ products, onAddToCart, onViewDetails }) {
   const [showModal, setShowModal] = useState(false);
 
   const handleOpen = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
 
-  // Productos iniciales
   const initialProducts = products.slice(0, 3);
-  // Productos adicionales para el modal
   const extraProducts = products.slice(3);
 
   return (
@@ -19,32 +17,39 @@ function ProductList({ products, onAddToCart }) {
       <Row>
         {initialProducts.map(product => (
           <Col key={product.id} xs={12} sm={6} md={4} className="mb-4">
-            <ProductCard product={product} onAddToCart={onAddToCart} />
+            <ProductCard
+              product={product}
+              onAddToCart={onAddToCart}
+              onViewDetails={onViewDetails} // 👈 pasar la prop al card
+            />
           </Col>
         ))}
       </Row>
 
       {extraProducts.length > 0 && (
         <div className="text-center">
-        <Button variant="warning" className="btn-hover" onClick={handleOpen}>
-        Ver más
-        </Button>
+          <Button variant="warning" className="btn-hover" onClick={handleOpen}>
+            Ver más
+          </Button>
         </div>
       )}
 
-      {/* Modal de productos adicionales */}
       <Modal show={showModal} onHide={handleClose} size="lg" centered animation={true}>
         <Modal.Header closeButton>
           <Modal.Title>Productos adicionales</Modal.Title>
         </Modal.Header>
         <Modal.Body style={{ maxHeight: '60vh', overflowY: 'auto' }}>
-        <Row>
+          <Row>
             {extraProducts.map(product => (
-            <Col key={product.id} xs={12} sm={6} md={4} className="mb-4">
-                <ProductCard product={product} onAddToCart={onAddToCart} />
-            </Col>
+              <Col key={product.id} xs={12} sm={6} md={4} className="mb-4">
+                <ProductCard
+                  product={product}
+                  onAddToCart={onAddToCart}
+                  onViewDetails={onViewDetails} // 👈 también aquí
+                />
+              </Col>
             ))}
-        </Row>
+          </Row>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>Cerrar</Button>

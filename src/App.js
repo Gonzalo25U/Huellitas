@@ -5,10 +5,13 @@ import Cart from './components/Cart';
 import Footer from './components/Footer';
 import About from './components/About';
 import productsData from './data/products';
+import ProductDetailsModal from './components/ProductDetailsModal'; 
 
 function App() {
   const [cart, setCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null); //  producto seleccionado
+  const [showDetails, setShowDetails] = useState(false); //  control modal detalles
 
   const addToCart = (product) => {
     const existing = cart.find(item => item.id === product.id);
@@ -24,23 +27,36 @@ function App() {
   };
 
   const removeFromCart = (id) => {
-    setCart(cart.filter(item => item.id !== id));
+    setCart(prev => prev.filter(item => item.id !== id));
   };
+
+  const clearCart = () => setCart([]);
 
   const openCart = () => setShowCart(true);
   const closeCart = () => setShowCart(false);
 
+  // 👇 Nueva función para ver detalles
+  const handleViewDetails = (product) => {
+    setSelectedProduct(product);
+    setShowDetails(true);
+  };
+
+  const handleCloseDetails = () => {
+    setShowDetails(false);
+    setSelectedProduct(null);
+  };
+
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      minHeight: '100vh'
-    }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header cartCount={cart.length} onOpenCart={openCart} />
 
       <main style={{ flex: 1 }}>
         <About />
-        <ProductList products={productsData} onAddToCart={addToCart} />
+        <ProductList
+          products={productsData}
+          onAddToCart={addToCart}
+          onViewDetails={handleViewDetails} //  pasar la función
+        />
       </main>
 
       <Footer />
@@ -49,8 +65,16 @@ function App() {
         cartItems={cart}
         onRemoveFromCart={removeFromCart}
         onChangeQuantity={changeQuantity}
+        onClearCart={clearCart}
         show={showCart}
         onClose={closeCart}
+      />
+
+      {/* Modal de detalles del producto */}
+      <ProductDetailsModal
+        product={selectedProduct}
+        show={showDetails}
+        onClose={handleCloseDetails}
       />
     </div>
   );

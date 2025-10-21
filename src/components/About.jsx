@@ -8,7 +8,7 @@ function About() {
       <Row>
         <Col md={6} className="mb-4">
           <Card className="h-100 shadow-sm">
-            <Card.Img variant="top" src="https://place-puppy.com/400x200" />
+            <Card.Img variant="top" src="https://www.ladridosybigotes.com/content/images/2024/10/2024-08-13-animal-hoarding-disorder.webp" />
             <Card.Body>
               <Card.Title>Misión</Card.Title>
               <Card.Text>
@@ -19,7 +19,7 @@ function About() {
         </Col>
         <Col md={6} className="mb-4">
           <Card className="h-100 shadow-sm">
-            <Card.Img variant="top" src="https://placekitten.com/400/200" />
+            <Card.Img variant="top" src="https://media.gettyimages.com/id/1060529042/es/foto/mujer-joven-con-perro.jpg?s=612x612&w=gi&k=20&c=YG-phsbRBx-cB9CGggQC2r7NBDLp7F7OL7pzw9ZN1nY=" />
             <Card.Body>
               <Card.Title>Visión</Card.Title>
               <Card.Text>

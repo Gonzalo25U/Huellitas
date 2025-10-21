@@ -1,0 +1,86 @@
+/* 🧩 Estilos del modal de detalles de producto */
+
+.product-modal .modal-content {
+  border-radius: 20px;
+  background-color: var(--color-light);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border: none;
+  overflow: hidden;
+}
+
+/* 🔹 Encabezado */
+.product-modal .modal-header {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-bottom: none;
+  padding: 16px 24px;
+}
+
+.product-modal .modal-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.product-modal .btn-close {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.product-modal .btn-close:hover {
+  opacity: 1;
+}
+
+/* 📸 Cuerpo del modal */
+.product-modal .modal-body {
+  padding: 25px;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.product-modal p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.product-modal strong {
+  color: var(--color-primary-dark);
+}
+
+/* 🎠 Carrusel */
+.product-modal .carousel {
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.product-modal .carousel-item img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* 🔘 Footer */
+.product-modal .modal-footer {
+  border-top: none;
+  background-color: var(--color-bg);
+  padding: 16px 24px;
+  justify-content: center;
+}
+
+.product-modal .btn-hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-modal .btn-hover:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}

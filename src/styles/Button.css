@@ -1,12 +1,15 @@
 .btn-hover {
-  background-color: #a66b3f !important; /* café/madera */
-  border: none !important;
-  color: #fff !important;
-  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 10px 18px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
 .btn-hover:hover {
-  background-color: #8c5732 !important; /* café más oscuro */
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
 }

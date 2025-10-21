@@ -1,95 +1,54 @@
-  /* Fondo general y tipografía */
+:root {
+  --color-bg: #f0f4f3;          /* Fondo general, gris verdoso suave */
+  --color-primary: #2c6975;     /* Azul petróleo medio */
+  --color-primary-dark: #20444a;/* Azul petróleo oscuro */
+  --color-accent: #ffb562;      /* Naranja pastel para destacar */
+  --color-light: #ffffff;       /* Blanco limpio para fondos */
+  --color-text: #333333;        /* Gris oscuro para texto */
+}
+
 body {
-  font-family: 'Arial', sans-serif;
-  color: #4b3a2f; /* marrón oscuro para texto */
   margin: 0;
   padding: 0;
-
-  /* Fondo con textura y gradiente */
-  background-image: 
-  linear-gradient(to bottom, rgba(245,240,225,0.9), rgba(245,240,225,0.7)),
-    url('https://purina.cl/sites/default/files/2022-10/purina-perros-y-gatos-pueden-ser-amigos.png');
-  background-size: cover;       /* cubre toda la pantalla */
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* fijo al hacer scroll */
-  background-position: center;
-  background-color: #f5f0e1;   /* fallback por si la imagen no carga */
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-bg);
+  background-image: none;
+  color: var(--color-text);
 }
 
-  /* Encabezados */
-  h2, h3 {
-    font-family: 'Georgia', serif;
-    color: #a66b3f; /* marrón cálido */
-  }
-
-  /* Cards de productos y sección Sobre Nosotros */
-.card {
-  background-color: rgba(217, 179, 130, 0.85); /* madera clara con opacidad */
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transition: transform 0.3s, box-shadow 0.3s;
-  color: #4b3a2f;
+/* 🐶 Tarjetas de productos */
+.product-card {
+  border: none;
+  border-radius: 16px;
+  background-color: var(--color-light);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
 }
 
-.about-card {
-  background-color: rgba(217, 179, 130, 0.85); /* opaco para legibilidad */
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transition: transform 0.3s, box-shadow 0.3s;
-  color: #4b3a2f;
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+/* 🔧 Imágenes uniformes */
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
 
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-  }
-
-  /* Botones */
-  .btn-hover {
-    background-color: #a66b3f;
-    border: none;
-    color: #fff;
-    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-  }
-
-  .btn-hover:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    background-color: #8c5732;
-  }
-
-  /* Modal */
-  .modal-content {
-    border-radius: 12px;
-    background-color: #f5f0e1; /* beige */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-
-  /* Footer */
-  footer {
-    background-color: #c49b6c;
-    color: #4b3a2f;
-    font-size: 0.9rem;
-    padding: 1rem 0;
-    border-top: 1px solid #b58a5b;
-  }
-
-  /* Redes sociales */
-  .social-icon {
-    transition: transform 0.3s, filter 0.3s;
-  }
-
-  .social-icon:hover {
-    transform: scale(1.2);
-    filter: brightness(1.2);
-  }
-
-  /* Carousel */
-  .carousel-item img {
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .carousel-item img:hover {
-    transform: scale(1.05);
-  }
+/* 🧱 Contenido consistente */
+.product-card .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  text-align: center;
+}

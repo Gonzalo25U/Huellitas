@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Carousel, Button } from 'react-bootstrap';
-
+import '../styles/ProductDetailsModal.css';
 function ProductDetailsModal({ product, show, onClose }) {
   if (!product) return null;
 
@@ -12,6 +12,14 @@ function ProductDetailsModal({ product, show, onClose }) {
       <Modal.Body>
         <p>{product.description}</p>
         <p><strong>Precio: </strong>${product.price}</p>
+        <Modal
+          className="product-modal"
+          show={show}
+          onHide={onClose}
+          size="lg"
+          centered
+          animation={true}
+        ></Modal>
         <Carousel>
           <Carousel.Item>
             <img
